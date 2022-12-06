@@ -1,18 +1,25 @@
-<form #login="ngForm" (submit) ="onSubmit(login)">
-  <label>
-    Username:
-    <input name="username" [(ngModel)]="username" required #username="ngModel" #ctrlTitle="ngModel" required> 
-    <label *ngIf="ctrlTitle.invalid && (ctrlTitle.touched || ctrlTitle.dirty)" style="color: red"> <br>This field is mandatory</label> <br>
-  </label>
-  <label>
-    Password:
-    <input type="password" name="password" [(ngModel)]="password" required>
-  </label> <br>
-  <label>
-    <input type="checkbox" checked="checked" name="remember"> Remember me
-  </label>
-  <span class="psw">Forgot <a href='#'> password?</a></span>
-  <button type="Submit">Submit</button>
- 
-</form>
 
+<body>
+<div class="container">
+    <h4 style="color: white">Account Login</h4>
+    <button type="button" id="button1">Create New Account</button>
+<form class="my-form" [formGroup]="loginForm" (ngSubmit)="loginUser()">
+    <label for="email"><b>Email</b>
+        <input type="email" placeholder="user@cirruslabs.io" formControlName="email">
+        <span style="color: red" *ngIf="email && email.invalid && email.touched">Email is invalid</span>
+    </label><br> 
+    <label for="user"><b>Username</b>
+        <input type="text" placeholder="wlokule" formControlName="user">
+        <span style="color: red" *ngIf="user && user.invalid && user.touched">Username is invalid</span>
+    </label> <br>
+    <label for="password"><b>Password</b>
+        <input type ="password" placeholder="Password" formControlName="password">
+        <span style="color: red" *ngIf="password && password.invalid && password.touched">Password is invalid</span>
+    </label><br>
+    <input type="checkbox" value="IsRememberMe" id="rememberMe"><label for="rememberMe">Remember Me</label><br>
+    <button [disabled]="loginForm.invalid" >Login</button><br>
+    <span class="psw">Forgot <a href="#">Password?</a></span>
+    
+</form>
+</div>
+</body>

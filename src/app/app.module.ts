@@ -10,6 +10,8 @@ import { XYZComponent } from './xyz/xyz.component';
 import { ButtonComponent } from './components/button/button.component';
 import { LoginComponent } from './components/login/login.component';
 import { AlertsComponent } from './alerts/alerts.component';
+import { NavbarComponent } from './navbar/navbar.component';
+
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { AlertsComponent } from './alerts/alerts.component';
     XYZComponent,
     ButtonComponent,
     LoginComponent,
-    AlertsComponent
+    AlertsComponent,
+    NavbarComponent,
+    
   ],
   imports: [
     BrowserModule,
